@@ -18,4 +18,10 @@ router.get(
     userController.isAuthenticated
 )
 
+router.get(
+    '/isAdmin',
+    AuthRequestValidators.validateIsAdminRequest,
+    userController.isAdmin
+);
+
 module.exports = router;
