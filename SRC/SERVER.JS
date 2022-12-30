@@ -3,8 +3,13 @@ const { PORT } = require('./config/serverConfig');
 const app = express();
 const apiroutes = require('./ROUTES/index');
 const bodyParser = require('body-parser');
+
 // const userService = require('./SERVICES/user-service');
-// const { User } = require('./MODELS/index');
+// const db = require('./MODELS/index');
+// const UserRepository = require('./REPOSITORY/user-repository');
+
+// const { User, Role } = require('./MODELS/index');
+
 
 const ServerStartup = () => {
 
@@ -13,9 +18,23 @@ const ServerStartup = () => {
 
     app.use('/api', apiroutes);
 
-    app.listen(PORT, () => {
+    app.listen(PORT, async () => {
 
         console.log(`server started on Port: ${PORT}`);
+
+        // if(process.env.DB_SYNC){
+        //     db.sequelize.sync({alter: true});
+        // }
+
+
+        // const u1 = await User.findByPk(6);
+        // const r1 = await Role.findByPk(1)
+        // u1.addRole(r1);
+        // const response = await r1.getUsers();
+        // const response = await r1.hasUsers(u1)
+        // console.log(response);
+
+
 
         // const service = new userService();
         // const newtoken = service.createToken({email:"agent@admin.com",id:5,});
@@ -24,7 +43,5 @@ const ServerStartup = () => {
         // const verifytoken = service.verifyToken(token)
         // console.log(verifytoken);
     })
-
 }
-
 ServerStartup();
