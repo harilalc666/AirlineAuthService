@@ -95,6 +95,24 @@ class userService{
         }
     }
 
+    isHR(userId) {
+        try {
+            return this.userrepository.isHR(userId);
+        } catch (error) {
+            console.log("Something went wrong in service layer");
+            throw error;
+        }
+    }
+
+    isAccounts(userId) {
+        try {
+            return this.userrepository.isAccounts(userId);
+        } catch (error) {
+            console.log("Something went wrong in service layer");
+            throw error;
+        }
+    }
+
 }
 
 module.exports = userService;

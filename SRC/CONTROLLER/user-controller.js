@@ -84,9 +84,51 @@ const isAdmin = async(req, res) => {
     }
 }
 
+const isHR = async(req, res) => {
+    try {
+        const response = await userservice.isHR(req.body.id);
+        return res.status(200).json({
+            data: response,
+            err: {},
+            success: true,
+            message: 'Successfully fetched whether user is admin or not'
+        })
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({
+            message: 'Something went wrong',
+            data: {},
+            success: false,
+            err: error
+        });
+    }
+}
+
+const isAccounts = async(req, res) => {
+    try {
+        const response = await userservice.isAccounts(req.body.id);
+        return res.status(200).json({
+            data: response,
+            err: {},
+            success: true,
+            message: 'Successfully fetched whether user is admin or not'
+        })
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({
+            message: 'Something went wrong',
+            data: {},
+            success: false,
+            err: error
+        });
+    }
+}
+
 module.exports = {
     create,
     signIn,
     isAuthenticated,
-    isAdmin
+    isAdmin,
+    isHR,
+    isAccounts
 }

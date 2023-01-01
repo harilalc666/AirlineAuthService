@@ -24,4 +24,16 @@ router.get(
     userController.isAdmin
 );
 
+router.get(
+    '/isHR',
+    AuthRequestValidators.validateIsAdminRequest,
+    userController.isHR
+);
+
+router.get(
+    '/isAccounts',
+    AuthRequestValidators.validateIsAdminRequest,
+    userController.isAccounts
+);
+
 module.exports = router;
