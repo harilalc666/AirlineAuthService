@@ -67,11 +67,19 @@ const isAuthenticated = async (req, res) => {
 const isAdmin = async(req, res) => {
     try {
         const response = await userservice.isAdmin(req.body.id);
+        if(!response){
+            return res.status(200).json({
+                data: response,
+                err: {},
+                success: true,
+                message: `User doesn't belongs to Admin department`
+            })  
+        }
         return res.status(200).json({
             data: response,
             err: {},
             success: true,
-            message: 'Successfully fetched whether user is admin or not'
+            message: 'Successfully fetched that user belongs to Admin department'
         })
     } catch (error) {
         console.log(error);
@@ -87,11 +95,19 @@ const isAdmin = async(req, res) => {
 const isHR = async(req, res) => {
     try {
         const response = await userservice.isHR(req.body.id);
+        if(!response){
+            return res.status(200).json({
+                data: response,
+                err: {},
+                success: true,
+                message: `User doesn't belongs to HR department`
+            })  
+        }
         return res.status(200).json({
             data: response,
             err: {},
             success: true,
-            message: 'Successfully fetched whether user is admin or not'
+            message: 'Successfully fetched that user belongs to HR department'
         })
     } catch (error) {
         console.log(error);
@@ -107,11 +123,19 @@ const isHR = async(req, res) => {
 const isAccounts = async(req, res) => {
     try {
         const response = await userservice.isAccounts(req.body.id);
+        if(!response){
+            return res.status(200).json({
+                data: response,
+                err: {},
+                success: true,
+                message: `User doesn't belongs to Accounts department`
+            })  
+        }
         return res.status(200).json({
             data: response,
             err: {},
             success: true,
-            message: 'Successfully fetched whether user is admin or not'
+            message: 'Successfully fetched that user belongs to Accounts department'
         })
     } catch (error) {
         console.log(error);

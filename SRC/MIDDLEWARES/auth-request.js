@@ -10,7 +10,7 @@ const validateUserAuth = (req, res, next) => {
     next();
 }
 
-const validateIsAdminRequest = (req, res, next) => {
+const validateRole = (req, res, next) => {
     if(!req.body.id) {
         return res.status(400).json({
             success: false,
@@ -24,5 +24,5 @@ const validateIsAdminRequest = (req, res, next) => {
 
 module.exports = {
     validateUserAuth,
-    validateIsAdminRequest
+    validateRole
 }

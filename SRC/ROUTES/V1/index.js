@@ -20,19 +20,19 @@ router.get(
 
 router.get(
     '/isAdmin',
-    AuthRequestValidators.validateIsAdminRequest,
+    AuthRequestValidators.validateRole,
     userController.isAdmin
 );
 
 router.get(
     '/isHR',
-    AuthRequestValidators.validateIsAdminRequest,
+    AuthRequestValidators.validateRole,
     userController.isHR
 );
 
 router.get(
     '/isAccounts',
-    AuthRequestValidators.validateIsAdminRequest,
+    AuthRequestValidators.validateRole,
     userController.isAccounts
 );
 
